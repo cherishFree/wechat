@@ -6,18 +6,29 @@
     <welcome-file-list>
         <welcome-file>index.jsp</welcome-file>
     </welcome-file-list>
-    <servlet>
+<!--     <servlet>
         <servlet-name>coreServlet</servlet-name>
         <servlet-class>
             com.souvc.weixin.servlet.CoreServlet
         </servlet-class>
     </servlet>
 
-    <!-- url-pattern中配置的/coreServlet用于指定该Servlet的访问路径 -->
+    url-pattern中配置的/coreServlet用于指定该Servlet的访问路径
     <servlet-mapping>
         <servlet-name>coreServlet</servlet-name>
         <url-pattern>/coreServlet</url-pattern>
     </servlet-mapping>
+    --> 
+    
+     <servlet>
+        <servlet-name>oauthServlet</servlet-name>
+        <servlet-class>com.souvc.weixin.servlet.OAuthServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>oauthServlet</servlet-name>
+        <url-pattern>/oauthServlet</url-pattern>
+    </servlet-mapping>
+    
 
     <servlet>
         <servlet-name>initServlet</servlet-name>

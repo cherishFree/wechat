@@ -6,6 +6,7 @@ import java.util.Map;
 import org.junit.Test;
 
 import com.souvc.weixin.pojo.Token;
+import com.souvc.weixin.pojo.WeixinUserInfo;
 import com.souvc.weixin.util.CommonUtil;
 import com.souvc.weixin.util.DBUtility;
 import com.souvc.weixin.util.TokenUtil;
@@ -30,12 +31,8 @@ public class TestDBUtility {
 			e.printStackTrace();
 		}
     }
-    public static void main(String[] args) {
-    	new TestDBUtility().testgetConnection();
-	}
 	public TestDBUtility() {
 		super();
-		// TODO Auto-generated constructor stub
 	}
 	
 	@Test
@@ -52,6 +49,28 @@ public class TestDBUtility {
         TokenUtil.saveToken(token);
     }
     
+    
+    public static void main(String args[]) {
+        // 获取接口访问凭证
+        String accessToken = CommonUtil.getToken("xxxx", "xxxx").getAccessToken();
+        /**
+         * 获取用户信息
+         */
+        WeixinUserInfo user = getUserInfo(accessToken, "ooK-yuJvd9gEegH6nRIen-gnLrVw");
+        System.out.println("OpenID：" + user.getOpenId());
+        System.out.println("关注状态：" + user.getSubscribe());
+        System.out.println("关注时间：" + user.getSubscribeTime());
+        System.out.println("昵称：" + user.getNickname());
+        System.out.println("性别：" + user.getSex());
+        System.out.println("国家：" + user.getCountry());
+        System.out.println("省份：" + user.getProvince());
+        System.out.println("城市：" + user.getCity());
+        System.out.println("语言：" + user.getLanguage());
+        System.out.println("头像：" + user.getHeadImgUrl());
+    }
+	private static WeixinUserInfo getUserInfo(String accessToken, String string) {
+		return null;
+	}
     
    
 }
